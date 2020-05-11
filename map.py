@@ -1,23 +1,28 @@
 import folium
 
-m = folium.Map(location=[41.2284, 80.9098], zoom_start=3)
-
-def drawMarkers(cordinates):
-    global m
+def initial_map(m, cordinates):
     for i in range(len(cordinates)):
-        
-        # lat = float(str(cordinates.lat))
-        # lon = float(str(cordinates.lon))
 
         # drawing marker
-        folium.Marker(location=[cordinates[i].lat, cordinates[i].lon],popup=f'<strong>{i}</strong>',icon=folium.Icon(color='red')).add_to(m)
+        folium.Marker(location=[cordinates[i][0], cordinates[i][1]],popup=f'<strong>{i}</strong>',
+                        icon=folium.Icon(color='red')).add_to(m)
 
-    m.save('map.html')
+def drawMarkers(cordinates):
+
+    m = folium.Map(location=[41.2284, 80.9098], zoom_start=3)
+
+    for i in range(len(cordinates)):
+
+        # drawing marker
+        folium.Marker(location=[cordinates[i].lat, cordinates[i].lon],popup=f'<strong>{i}</strong>',
+                        icon=folium.Icon(color='red')).add_to(m)
     return m
 
 # draw lines between two points
 def drawLines(route):
-    global m
+
+    m = drawMarkers(route)
+
     for i in range(len(route)):
         from_city = route[i]
         if i + 1 < len(route):
@@ -36,4 +41,4 @@ def drawLines(route):
 
         folium.PolyLine(locations=[from_city, to_city], color='blue').add_to(m)
 
-    m.save('map.html')
+    m.save('templates/map.html')
