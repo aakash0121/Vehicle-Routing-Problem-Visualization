@@ -4,10 +4,8 @@ import operator
 import pandas as pd
 import matplotlib.pyplot as plt 
 from math import radians, cos, sin, asin, sqrt 
-from copy import deepcopy
-
-from read_write_data import loadData
 import map
+from read_write_data import loadData
 
 class City:
     def __init__(self, lat, lon):
@@ -227,26 +225,25 @@ def geneticAlgo(population, popSize, eliteSize, mutationRate, generations):
      # Running for generations for finding optimum route(population)
     for i in range(0, generations):
         pop = nextGeneration(pop, eliteSize, mutationRate)
+
+        # returning best route(individual)
+        bestRouteIndex = rankRoutes(pop)[0][0]
+        bestRoute = pop[bestRouteIndex]
+
+        # best individual distance in the generation
+        distance = 1/rankRoutes(pop)[0][1]
+
+        # print(bestRoute, distance)
+
+        map.drawLines(bestRoute)
     
-    # Distance of final population's best individual(best route)
-    print("Final distance: " + str(1 / rankRoutes(pop)[0][1]))
+def execute_genetic():
+        city_list = []
 
-    # returning best route(individual)
-    bestRouteIndex = rankRoutes(pop)[0][0]
-    bestRoute = pop[bestRouteIndex]
-    return bestRoute
+        data = loadData()
 
-# list of city co-ordinates(or nodes)
-data_points = loadData()
+        for i in data:
+            x, y = i
+            city_list.append(City(x, y))
 
-city_list = []
-
-for i in data_points:
-    x, y = i
-    city_list.append(City(x, y))
-
-map.drawMarkers(city_list)
-
-best_route = geneticAlgo(population=city_list, popSize=100, eliteSize=20, mutationRate=0.01, generations=500)
-
-map.drawLines(best_route)
+        geneticAlgo(population=city_list, popSize=100, eliteSize=20, mutationRate=0.01, generations=50)
