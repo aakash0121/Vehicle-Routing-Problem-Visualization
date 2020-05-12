@@ -1,0 +1,45 @@
+.content{
+    height: 100%;
+    background-color: blue;
+}
+
+
+
+
+.content>.form-left{
+    width: 15%;
+    /* height: 90%; */
+    z-index: 2;
+    margin-top: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* align-content: space-between; */
+    background-color: rgba(41, 128, 97, 0.712);
+}
+.card{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    border: 2px solid rgba(0, 0, 255, 0.445);
+}
+.card>.card-header{
+    background-color: rgba(0, 0, 255, 0.445);
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+.card>.card-form{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
