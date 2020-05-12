@@ -25,6 +25,7 @@ def final():
     elitism = int(request.form["elitism"])
     mutationRate = float(request.form["mutationRate"])
     generations = int(request.form["generations"])
+    # print(popSize, elitism, mutationRate, generations)
     execute_genetic(popSize=popSize, eliteSize=elitism, mutationRate=mutationRate, generations=generations)
     return render_template('map.html')
 
