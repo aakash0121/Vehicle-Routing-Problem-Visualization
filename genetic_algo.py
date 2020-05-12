@@ -237,7 +237,7 @@ def geneticAlgo(population, popSize, eliteSize, mutationRate, generations):
 
         map.drawLines(bestRoute)
     
-def execute_genetic():
+def execute_genetic(popSize, eliteSize, mutationRate, generations):
         city_list = []
 
         data = loadData()
@@ -246,4 +246,4 @@ def execute_genetic():
             x, y = i
             city_list.append(City(x, y))
 
-        geneticAlgo(population=city_list, popSize=100, eliteSize=20, mutationRate=0.01, generations=50)
+        geneticAlgo(city_list, popSize, eliteSize, mutationRate, generations)

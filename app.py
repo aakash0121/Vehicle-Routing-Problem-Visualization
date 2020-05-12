@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import folium
 from read_write_data import loadData
 import map
@@ -19,9 +19,13 @@ m.save('templates/map.html')
 def index():
     return render_template('map.html')
 
-@app.route('/processing', methods = ['GET', 'POST'])
+@app.route('/progress', methods = ['GET', 'POST'])
 def final():
-    execute_genetic()
+    popSize = int(request.form["popSize"])
+    elitism = int(request.form["elitism"])
+    mutationRate = float(request.form["mutationRate"])
+    generations = int(request.form["generations"])
+    execute_genetic(popSize=popSize, eliteSize=elitism, mutationRate=mutationRate, generations=generations)
     return render_template('map.html')
 
 if __name__ == "__main__":
