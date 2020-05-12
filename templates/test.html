@@ -37,74 +37,66 @@
 </head>
 <body>    
     
-            <div class="content">
-                <div class="score">
-                    Akash 
+    <div class="content">
+        <div class="score">
+            Akash 
+        </div>
+        <div class="form-left">
+            <form action="/progress" method="POST">
+                <div class="card">
+                    <div class="card-header">
+                        Population Size
+                    </div>
+                    <div class="range-wrap">
+    
+                        <input class ="range" type="range" id="pop" name="popSize" min="10" max="200">
+                        <output class="bubble"></output>
+                    </div>
+                    
                 </div>
-                <div class="form-left">
-                    <form action="/progress" method="POST">
-                        <div class="card">
-                            <div class="card-header">
-                                Population Size
-                            </div>
-                            <div class="range-wrap">
-                                <!-- <label for="popSize">Value(10-200): </label> -->
-                                <input class ="range" type="range" id="pop" name="popSize" min="10" max="200">
-                                <output class="bubble"></output>
-                            </div>
-                            
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                Elitism
-                            </div>
-                            <div class="range-wrap">
-                                <!-- <label for="elitism">Value(between 0-10): </label> -->
-                                <input class ="range" type="range" id="elite" name="elitism" min="0" max="10">
-                                <output class="bubble"></output>
-                            </div>
-                            
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                Mutation Rate
-                            </div>
-                            <div class="range-wrap">
-                                <!-- <label for="mutationRate">Value(0-1): </label> -->
-                                <input class ="range" type="range" id="mR" name="mutationRate" min="0.00" max="1.00" step="0.01">
-                                <output class="bubble"></output>
-                            </div>
-                            
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                Generations
-                            </div>
-                            <div class="range-wrap">
-                                <!-- <label for="gen">Value(1-500):</label> -->
-                                <input class ="range" type="range" id="gen" name="generations" min="1" max="500">
-                                <output class="bubble"></output>
-                            </div>
-                            
-                        </div>
-                        <input type="submit" class="submit" value="Submit" />
-                        
-                        <!-- <label for="vol">Volume (between 0 and 50):</label>
-                        <input type="range" id="vol" name="vol" min="0" max="50">
-                        <label for="vol">Volume (between 0 and 50):</label>
-                        <input type="range" id="vol" name="vol" min="0" max="50">
-                        <label for="vol">Volume (between 0 and 50):</label>
-                        <input type="range" id="vol" name="vol" min="0" max="50">
-                        <input type="submit" value="Submit"> -->
-                    </form>
+                <div class="card">
+                    <div class="card-header">
+                        Elitism
+                    </div>
+                    <div class="range-wrap">
+                        <!-- <label for="elitism">Value(between 0-10): </label> -->
+                        <input class ="range" type="range" id="elite" name="elitism" min="0" max="10">
+                        <output class="bubble"></output>
+                    </div>
+                    
                 </div>
-            </div> 
-            <div class="folium-map" id="map_97a154184dcf4a188c15a32f97fe2fe7" ></div>
+                <div class="card">
+                    <div class="card-header">
+                        Mutation Rate
+                    </div>
+                    <div class="range-wrap">
+                        <!-- <label for="mutationRate">Value(0-1): </label> -->
+                        <input class ="range" type="range" id="mR" name="mutationRate" min="0.00" max="1.00" step="0.01">
+                        <output class="bubble"></output>
+                    </div>
+                    
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Generations
+                    </div>
+                    <div class="range-wrap">
+                        <!-- <label for="gen">Value(1-500):</label> -->
+                        <input class ="range" type="range" id="gen" name="generations" min="1" max="500">
+                        <output class="bubble"></output>
+                    </div>
+                    
+                </div>
+                <input type="submit" class="submit" value="Submit" />
+            </form>
+        </div>
+    </div> 
+    <div class="folium-map" id="map_97a154184dcf4a188c15a32f97fe2fe7" ></div>
         
 </body>
-<script>  
 
-            const allRanges = document.querySelectorAll(".range-wrap");
+<script>
+             const allRanges = document.querySelectorAll(".range-wrap");
             allRanges.forEach(wrap => {
             const range = wrap.querySelector(".range");
             const bubble = wrap.querySelector(".bubble");
@@ -125,8 +117,6 @@
             // Sorta magic numbers based on size of the native UI thumb
             bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
             }
-</script>
-<script>
     
             var map_97a154184dcf4a188c15a32f97fe2fe7 = L.map(
                 "map_97a154184dcf4a188c15a32f97fe2fe7",
@@ -139,9 +129,7 @@
                 }
             );
 
-            
-
-        
+ 
     
             var tile_layer_5b000463941647d0a3b4676a9f28c084 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
