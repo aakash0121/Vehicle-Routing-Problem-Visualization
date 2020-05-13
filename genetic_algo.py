@@ -4,7 +4,6 @@ import operator
 import pandas as pd
 import matplotlib.pyplot as plt 
 from math import radians, cos, sin, asin, sqrt 
-import map
 from read_write_data import loadData
 
 class City:
@@ -72,6 +71,17 @@ class Fitness:
         if self.fitness == 0:
             self.fitness = 1 / float(self.routeDistance())
         return self.fitness
+    
+def plot_distance_with_iterations(distance_list):
+    plt.plot(distance_list)
+    # plt.semilogy(out.bestcost)
+    plt.xlim(0,)
+    plt.xlabel('Iterations')
+    plt.ylabel('Best Cost')
+    plt.title('Genetic Algorithm (GA)')
+    plt.grid(True)
+    # plt.show()
+    plt.savefig('static/plot.png')
 
 # returns list of results in sorted order of their fitness scores in descending order    
 def rankRoutes(population):
@@ -210,40 +220,34 @@ def initialPopulation(popSize, cityList):
     for i in range(popSize):
         population.append(createRoute(cityList))
     
-    return population
-
-
-# main function of generating best route
-def geneticAlgo(population, popSize, eliteSize, mutationRate, generations):
-
-    # initial population
-    pop = initialPopulation(popSize, population)
-
-    # Distance of intial population's best individual(best route)
-    print("Initial distance: " + str(1 / rankRoutes(pop)[0][1]))
-
-     # Running for generations for finding optimum route(population)
-    for i in range(0, generations):
-        pop = nextGeneration(pop, eliteSize, mutationRate)
-
-        # returning best route(individual)
-        bestRouteIndex = rankRoutes(pop)[0][0]
-        bestRoute = pop[bestRouteIndex]
-
-        # best individual distance in the generation
-        distance = 1/rankRoutes(pop)[0][1]
-
-        # print(bestRoute, distance)
-
-        map.drawLines(bestRoute)
+    return population    
     
 def execute_genetic(popSize, eliteSize, mutationRate, generations):
         city_list = []
 
-        data = loadData()
+        data = loadData('static/data.csv')
 
         for i in data:
             x, y = i
             city_list.append(City(x, y))
 
-        geneticAlgo(city_list, popSize, eliteSize, mutationRate, generations)
+        # geneticAlgo(city_list, popSize, eliteSize, mutationRate, generations)
+
+        # initial population
+        pop = initialPopulation(popSize, city_list)
+
+        # Distance of intial population's best individual(best route)
+        print("Initial distance: " + str(1 / rankRoutes(pop)[0][1]))
+
+        # Running for generations for finding optimum route(population)
+        for i in range(0, generations):
+            pop = nextGeneration(pop, eliteSize, mutationRate)
+
+            # returning best route(individual)
+            bestRouteIndex = rankRoutes(pop)[0][0]
+            bestRoute = pop[bestRouteIndex]
+
+            # best individual distance in the generation
+            distance = 1/rankRoutes(pop)[0][1]
+            
+            yield [bestRoute, distance]
