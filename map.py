@@ -1,11 +1,11 @@
 import folium
 
-def initial_map(m, cordinates):
-    for i in range(len(cordinates)):
+# def initial_map(m, cordinates):
+#     for i in range(len(cordinates)):
 
-        # drawing marker
-        folium.Marker(location=[cordinates[i][0], cordinates[i][1]],popup=f'<strong>{i}</strong>',
-                        icon=folium.Icon(color='red')).add_to(m)
+#         # drawing marker
+#         folium.Marker(location=[cordinates[i][0], cordinates[i][1]],popup=f'<strong>{i}</strong>',
+#                         icon=folium.Icon(color='red')).add_to(m)
 
 def drawMarkers(cordinates):
 
