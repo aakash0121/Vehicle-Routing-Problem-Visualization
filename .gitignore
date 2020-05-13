@@ -1,2 +1,5 @@
 __pycache__
 .vscode
+test.py
+test.html
+test.__pycache__
