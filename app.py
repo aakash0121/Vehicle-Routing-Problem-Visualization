@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-    m = folium.Map(location=[41.2284, 80.9098], zoom_start=3)
+    m = folium.Map(location=[ 23.6856, 77.5643], tiles="OpenStreetMap", zoom_start=5)
     m.add_child(folium.ClickForMarker())
     m.save('templates/map.html')
 
