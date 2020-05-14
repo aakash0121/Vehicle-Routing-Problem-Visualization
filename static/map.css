@@ -6,12 +6,13 @@
 }
 .score{
     /* position: relative; */
-  display: inline-block;
-  border-bottom: 1px dotted black;
+    display: inline-block;
+    border-bottom: 1px dotted black;
     text-align: center;
     /* margin-top: 50px; */
-    margin-top: 80px !important;
-    margin-left: 50px;
+    margin-top: 50px !important;
+    /* margin-left: 60px; */
+    margin-left: 3.5%;
     position: absolute;
     z-index: 2;
     width: 10%;
@@ -33,7 +34,7 @@
     width: 15%;
     /* height: 90%; */
     z-index: 2;
-    margin-top: 160px;
+    margin-top: 120px;
     margin-left: 20px;
     position: absolute;
     display: flex;
@@ -58,6 +59,7 @@
 .card>.card-header{
     background-color: rgba(11, 39, 99, 0.705);
     color: wheat;
+    padding: 8px;
     border-radius: 5px;
     font-size: 16px;
     margin-top: 30px;
@@ -98,9 +100,51 @@
     width: 100%;
     
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      /* width: 80px; */
+      -webkit-appearance: none;
+      background-color: grey;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #bb3513;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      border-radius: 50%;
+      /* -webkit-appearance: none; */
+      height: 10px;
+      cursor: pointer;
+      background: #163d85;
+      box-shadow: -80px 0 0 80px red;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #9a905d;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #9a905d;
+}
 .bubble {
     background: red;
     color: white;
+    margin-top: 6px;
     padding: 4px 12px;
     position: absolute;
     border-radius: 4px;
@@ -120,10 +164,10 @@
 .submit{
     width: 100%;
     background-color: red;
-    border: 2px solid white;
-    border-radius: 5px;
+    /* border: 2px solid white; */
+    border-radius: 8px;
     font-size: 24px;
-    line-height: 40px;
+    line-height: 30px;
     margin-top: 30px;
     margin-bottom: 40px;
     color: white;
@@ -138,18 +182,19 @@
 } */
 
 .score .tooltipimg {
+    margin-left: 60px;
     opacity: 0.8;
-  visibility: hidden;
-  width: 400px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  left: 110%;
+    visibility: hidden;
+    width: 400px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
 }
 
 .score .tooltipimg::after {
