@@ -180,7 +180,8 @@ class Map(MacroElement):
         {% macro html(this, kwargs) %}
         <div class="content">
             <div class="score">
-                See Plot
+                Plot
+                <img src="../static/plot.png" class="tooltipimg">
             </div>
             <div class="form-left">
                 <form action="/progress" method="POST">
@@ -190,7 +191,7 @@ class Map(MacroElement):
                         </div>
                         <div class="range-wrap">
 
-                            <input class ="range" type="range" id="pop" name="popSize" min="1" max="500">
+                            <input class ="range" type="range" id="pop" name="popSize" min="1" max="500" value="200">
                             <output class="bubble"></output>
                         </div>
                 
@@ -201,7 +202,7 @@ class Map(MacroElement):
                         </div>
                         <div class="range-wrap">
                 
-                            <input class ="range" type="range" id="elite" name="elitism" min="0" max="100">
+                            <input class ="range" type="range" id="elite" name="elitism" min="0" max="100" value="20">
                             <output class="bubble"></output>
                         </div>
                         
@@ -212,7 +213,7 @@ class Map(MacroElement):
                         </div>
                         <div class="range-wrap">
                         
-                            <input class ="range" type="range" id="mR" name="mutationRate" min="0" max="1", step="0.01">
+                            <input class ="range" type="range" id="mR" name="mutationRate" min="0" max="1", step="0.01" value="0.03">
                             <output class="bubble"></output>
                         </div>
                         
@@ -223,12 +224,12 @@ class Map(MacroElement):
                         </div>
                         <div class="range-wrap">
                             
-                            <input class ="range" type="range" id="gen" name="generations" min="1" max="500" value="10">
+                            <input class ="range" type="range" id="gen" name="generations" min="1" max="500" value="250">
                             <output class="bubble"></output>
                         </div>
                         
                     </div>
-                    <input onclick=sendData() type="submit" class="submit">
+                    <input onclick=sendData() type="Submit" class="submit" value="Start">
                     <input type="hidden" id="arr_data" name="arr_data">
                 </form>
             </div>
@@ -260,6 +261,11 @@ class Map(MacroElement):
             }
 
             function sendData() {
+                //alert("anmol");
+                //var resultElement = document.getElementById('getResult1');
+               // alert($('#mR').val('html','data'));
+                //resultElement.innerHTML = '';
+                
                 
                 
                 console.log(JSON.stringify(arr_data));

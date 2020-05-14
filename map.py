@@ -3,10 +3,13 @@ import numpy as np
 import pandas as pd
 from collections import namedtuple
 
-def get_bearing(p1, p2):
+
+def get_rotation(p1, p2):
     
+    # getting difference of longitudes in radians 
     long_diff = np.radians(p2.lon - p1.lon)
     
+    # getting latitudes of both points in radians
     lat1 = np.radians(p1.lat)
     lat2 = np.radians(p2.lat)
     
@@ -14,12 +17,12 @@ def get_bearing(p1, p2):
     y = (np.cos(lat1) * np.sin(lat2) 
         - (np.sin(lat1) * np.cos(lat2) 
         * np.cos(long_diff)))
-    bearing = np.degrees(np.arctan2(x, y))
+    rotation = np.degrees(np.arctan2(x, y))
     
     # adjusting for compass bearing
-    if bearing < 0:
-        return bearing + 360
-    return bearing
+    if rotation < 0:
+        return rotation + 360
+    return rotation
 
 def get_arrows(locations, color='red', size=6, n_arrows=3):
     
@@ -29,7 +32,7 @@ def get_arrows(locations, color='red', size=6, n_arrows=3):
     p1 = Point(locations[0][0], locations[0][1])
     p2 = Point(locations[1][0], locations[1][1])
     
-    rotation = get_bearing(p1, p2) - 90
+    rotation = get_rotation(p1, p2) - 90
 
     arrow_lats = np.linspace(p1.lat, p2.lat, n_arrows + 2)[1:n_arrows+1]
     arrow_lons = np.linspace(p1.lon, p2.lon, n_arrows + 2)[1:n_arrows+1]
