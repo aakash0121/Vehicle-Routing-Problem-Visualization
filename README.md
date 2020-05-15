@@ -8,4 +8,16 @@
 5. Run `python3 app.py`.
 6. After successfully running, go to `http://127.0.0.1:5000/` on web browser and you should see like this.
 
-![Image]()
+![Image](https://github.com/aakash0121/py_TSP/blob/master/static/1.png)
+
+7. Add a few locations for delivery and the first location you enter is the location where the vehicle will start travelling.
+8. Enter the desired values of Population Size, Elitism, Mutation Rate and Generations.
+
+![Image](https://github.com/aakash0121/py_TSP/blob/master/static/2.png)
+
+9. Hit **Start**.
+
+## Output
+
+![Image](https://github.com/aakash0121/py_TSP/blob/master/static/3.png)
+
