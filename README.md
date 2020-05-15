@@ -23,6 +23,8 @@
 
 10. To see the plot of distance and generations(iterations) go to Plot and on hover you would see a plot.
 
-![Image](https://github.com/aakash0121/py_TSP/blob/master/static/plot.png)
+![Image]https://github.com/aakash0121/py_TSP/blob/master/static/plot.png)
 
-This represents
+This represents how the distance of route is reduced with generations. We want to decrease the distance as described in the vehicle routing problem.
+
+
