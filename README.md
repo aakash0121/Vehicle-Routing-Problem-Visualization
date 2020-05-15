@@ -21,3 +21,8 @@
 
 ![Image](https://github.com/aakash0121/py_TSP/blob/master/static/3.png)
 
+10. To see the plot of distance and generations(iterations) go to Plot and on hover you would see a plot.
+
+![Image](https://github.com/aakash0121/py_TSP/blob/master/static/plot.png)
+
+This represents
