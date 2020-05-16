@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 from math import radians, cos, sin, asin, sqrt 
 from read_write_data import loadData
 
+city_list = []
+distance_matrix = []
+
 class City:
     def __init__(self, lat, lon):
         self.lat = lat
@@ -71,6 +74,18 @@ class Fitness:
         if self.fitness == 0:
             self.fitness = 1 / float(self.routeDistance())
         return self.fitness
+
+def create_distance_matrix(cityList):
+    global distance_matrix
+
+    for i in range(len(cityList)):
+        d = []
+        for j in range(len(cityList)):
+            if i == j:
+                d.append(float('inf'))
+            else:
+                d.append(cityList[i].distance(cityList[j]))
+        distance_matrix.append(d)
     
 def plot_distance_with_iterations(distance_list):
     plt.plot(distance_list)
@@ -148,6 +163,13 @@ def breed(parent1, parent2):
     child = childP1 + childP2
     return child
 
+def scx(p1, p2):
+    global city_list
+    child = []
+
+
+    
+
 # this will return the children by mating individuals in matingpool
 def breedPopulation(mating_pool, eliteSize):
     children = []
@@ -223,13 +245,17 @@ def initialPopulation(popSize, cityList):
     return population    
     
 def execute_genetic(popSize, eliteSize, mutationRate, generations):
-        city_list = []
+        global city_list
 
         data = loadData('static/data.csv')
 
         for i in data:
             x, y = i
             city_list.append(City(x, y))
+
+        # create a distance_matrix
+        if not distance_matrix:
+            create_distance_matrix(city_list)
 
         # geneticAlgo(city_list, popSize, eliteSize, mutationRate, generations)
 
