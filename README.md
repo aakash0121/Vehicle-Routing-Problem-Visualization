@@ -1,4 +1,56 @@
 # py_TSP
+**Travelling Salesman Problem** is defined as "Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?". It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science.
+
+**Genetic Algorithm** s a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on biologically inspired operators such as mutation, crossover and selection.
+
+This is an implementation of solving TSP with genetic algorithm specially modified for TSP. Read this [paper](https://www.researchgate.net/publication/264819943_Improved_genetic_algorithms_for_the_travelling_salesman_problem) for theory.
+
+## Dataset
+[Here](http://www.math.uwaterloo.ca/tsp/data/index.html) is the real world dataset that can be used for testing TSP algorithms.
+
+## Steps involved
+**Step 1**
+
+**Initialisation**: generate initial population of chromosomes of a predefined
+population size. This implementation generates random populations.
+
+**Step 2**
+
+**Evaluation**: find objective function value for each of the chromosomes in the
+population. In this step, a fitness function is defined to measure how good an individual(route) is.
+
+
+**Step 3**
+
+
+**Selection**: select chromosomes into next generation from the current population
+according to some criteria. This implementation has a feature **Elitism** which selects best individual in the current population for mating to create next generation.
+
+
+**Step 4**
+
+
+**Crossover**: a pair of parent chromosomes is chosen sequentially from the top of
+the population. Perform crossover operation using any of the crossover
+operations to generate offspring. Since, SCX generates one offspring at a time,
+so, second parent selected for a crossover is considered as first parent in the next
+pair.
+
+
+**Step 5**
+
+
+**Mutation**: A chromosome is chosen sequentially from the top of the population.
+Decide according probability of mutation whether it is going to generate a new
+chromosome using mutation operation. If yes, perform mutation operation.
+Repeat this process for all chromosomes in the population.
+
+
+**Step 6**
+
+
+**Generation**: Repeat Steps 2–5 until termination condition is satisfied. 
+
 
 ## Usage
 1. Open a virtual environment to load packages needed.
