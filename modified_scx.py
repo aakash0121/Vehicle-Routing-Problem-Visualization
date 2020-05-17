@@ -65,6 +65,6 @@ def m_scx(p1x, p2x, city_listx, distance_matrix):
                 child.append(p2[i2])
                 i += 1
     
-    print(child)
+    # print(child)
     
     return child
