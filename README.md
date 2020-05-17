@@ -3,7 +3,7 @@
 
 **Genetic Algorithm** s a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on biologically inspired operators such as mutation, crossover and selection.
 
-This is an implementation of solving TSP with genetic algorithm specially modified for TSP. Read this [paper](https://www.researchgate.net/publication/264819943_Improved_genetic_algorithms_for_the_travelling_salesman_problem) for theory.
+This is an implementation of [this paper](https://www.researchgate.net/publication/264819943_Improved_genetic_algorithms_for_the_travelling_salesman_problem) for solving TSP with modified genetic algorithm.
 
 ## Dataset
 [Here](http://www.math.uwaterloo.ca/tsp/data/index.html) is the real world dataset that can be used for testing TSP algorithms.
