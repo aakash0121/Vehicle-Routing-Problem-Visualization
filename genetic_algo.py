@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 from math import radians, cos, sin, asin, sqrt 
 from read_write_data import loadData
+from modified_scx import m_scx
 
 city_list = []
 distance_matrix = []
@@ -165,9 +166,15 @@ def breed(parent1, parent2):
 
 def scx(p1, p2):
     global city_list
-    child = []
+    global distance_matrix
+    child_class = []
 
+    child = m_scx(p1, p2, city_list, distance_matrix)
 
+    for i in range(len(child)):
+        child_class.append(City(child[i][0], child[i][1]))
+
+    return child_class
     
 
 # this will return the children by mating individuals in matingpool
