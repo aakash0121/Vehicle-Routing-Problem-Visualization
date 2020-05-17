@@ -162,6 +162,7 @@ def breed(parent1, parent2):
     childP2 = [item for item in parent2 if item not in childP1]
 
     child = childP1 + childP2
+    # print(type(child[0]))
     return child
 
 def scx(p1, p2):
@@ -173,7 +174,7 @@ def scx(p1, p2):
 
     for i in range(len(child)):
         child_class.append(City(child[i][0], child[i][1]))
-
+    print(child_class, type(child_class[0]))
     return child_class
     
 
@@ -191,7 +192,7 @@ def breedPopulation(mating_pool, eliteSize):
     
     # creating children by breeding rest of the individuals
     for i in range(0, length):
-        child = breed(pool[i], pool[len(mating_pool)-i-1])
+        child = scx(pool[i], pool[len(mating_pool)-i-1])
         children.append(child)
     return children
 
