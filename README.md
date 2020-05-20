@@ -1,5 +1,10 @@
-# py_TSP
-**Travelling Salesman Problem** is defined as "Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?". It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science.
+# Vehicle Routing Problem Visualization with Genetic Algorithm
+
+
+**Vehicle Routing Problem**: The vehicle routing problem (VRP) is a combinatorial optimization and integer programming problem which asks "What is the optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers?". It generalises the well-known travelling salesman problem (TSP).
+
+
+Determining the optimal solution to VRP is NP-hard,so the size of problems that can be solved, optimally, using mathematical programming or combinatorial optimization may be limited. Therefore, commercial solvers tend to use heuristics due to the size and frequency of real world VRPs they need to solve.
 
 **Genetic Algorithm** s a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on biologically inspired operators such as mutation, crossover and selection.
 
